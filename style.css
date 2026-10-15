@@ -1,0 +1,69 @@
+
+/* Mobile-first: giao diện mặc định */
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+figure {
+    margin: 0;
+    padding: 10px;
+    border: 2px solid #555;
+    border-radius: 0;
+    background-color: #f0f0f0;
+    color: #222;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 1. Tablet */
+@media screen and (min-width: 772px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    figure {
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    figure:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* 2. Màn hình lớn */
+@media screen and (min-width: 992px) {
+    figure:nth-child(3n) {
+        grid-column: 1 / -1;
+    }
+
+    figure {
+        border-radius: 0;
+    }
+}
+
+/* 3. Giảm chuyển động */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* 4. Chế độ tối */
+@media (prefers-color-scheme: dark) {
+    figure {
+        background-color: #222;
+        color: #fff3a6;
+        border-color: #000;
+    }
+}
